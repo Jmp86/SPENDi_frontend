@@ -10,7 +10,7 @@ const CategoryList = (props) => {
 
         return(
             <div>
-                {props.categories.map(cat => <div className='tile'>{cat.name} Budget: {cat.category_budget}<br/> Current Expense: {cat.category_expense}<br/> <button className="delete" onClick={() => props.deleteBudget(cat.id)}>x</button></div>)}
+                {props.categories.map(cat => <div className='tile'><h3>{cat.name}</h3> <br/> Budget $ {cat.category_budget}<br/> Current Expense: {cat.category_expense}<br/> <button className="delete" onClick={() => props.deleteBudget(cat.id)}>x</button></div>)}
             </div>
         )
     }

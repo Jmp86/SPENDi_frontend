@@ -42,7 +42,7 @@ class LoginForm extends Component {
     render(){
         return(
             <div className='login' style={{backgroundImage: `url(https://wallpaperaccess.com/full/1104816.jpg)`}}>
-                <form className='input' onSubmit={this.handleSubmit}>
+                <form className='tile' onSubmit={this.handleSubmit}>
                     <h1>Sign In</h1>
                     <label>Username:</label><br/>
                     <input type="text" name="username" onChange={this.handleChange}/><br/>

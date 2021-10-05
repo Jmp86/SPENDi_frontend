@@ -180,7 +180,9 @@ class UserBudget extends Component {
                 <h2>Budgets</h2>
                 <CategoryList deleteBudget={this.deleteBudget} categories={this.state.categories} user_id={this.state.user.id}/>
                 <h2>Expenses</h2>
-                <ExpenseList deleteExpense={this.deleteExpense} expenses={this.state.expenses} user_id={this.state.user.id}/>
+                <ul>
+                    <ExpenseList deleteExpense={this.deleteExpense} expenses={this.state.expenses} user_id={this.state.user.id}/>
+                </ul>
                 <br/>
                 <ExpenseButton user_id={this.state.user.id}/>
                 <br/>

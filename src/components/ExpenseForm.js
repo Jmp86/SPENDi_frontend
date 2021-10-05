@@ -59,7 +59,7 @@ const ExpenseForm = (props) => {
         return(
             <div className='expense' style={{backgroundImage: `url(https://cdn.corporatefinanceinstitute.com/assets/housing-expense-ratio-1024x651.jpeg)`}}>
                 <NavBar user_id={props.match.params.id}/>
-                <form className='input' onSubmit={handleSubmit}>
+                <form className="tile" onSubmit={handleSubmit}>
                     <h1>Add Expense</h1>
                     <label>Description:</label><br/>
                     <input type="text" name="description" onChange={handleChange}/><br/>

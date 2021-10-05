@@ -25,7 +25,8 @@ const ExpenseList = (props) => {
 
         return(
             <div className='tile'>
-                {props.expenses.map(exp => <div>{exp.description} : {exp.cost} <button className="delete" onClick={() => props.deleteExpense(exp.id)}>x</button></div>)}
+                <h3>All Expenses</h3>
+                {props.expenses.map(exp => <li>{exp.description} : {exp.cost} <button className="delete" onClick={() => props.deleteExpense(exp.id)}>x</button></li>)}
                 {/* {console.log(this.state.categories.name)} */}
             </div>
         )

@@ -38,7 +38,7 @@
   overflow: hidden;
 }
 
-.tile, .input {
+.tile {
   background-color: rgba(0, 0, 0, 0.589);
   border: rgba(252, 252, 252, 0.705) solid 1px;
   padding: 2rem;
@@ -82,11 +82,23 @@ button {
   right: 0;
   transform: translateY(-45%);
 }
+.budgetForm {
+  position: absolute;
+  top: 32%;
+  right: 0;
+  transform: translateY(-65%);
+}
 .expButton {
   position: absolute;
   top: 50%;
   right: 0;
   transform: translateY(-50%);
+}
+.incomeForm {
+  position: absolute;
+  top: 62%;
+  right: 0;
+  transform: translateY(-25%);
 }
 .incomeButton {
   position: absolute;
