@@ -40,6 +40,7 @@ const SignUpForm = () => {
     
         .then(res => res.json())
         .then(user => {history.push(`/user/${user.id}`)})
+        .catch(error => console.log(error) );
     }}
 
     return (

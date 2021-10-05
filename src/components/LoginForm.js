@@ -9,7 +9,8 @@ class LoginForm extends Component {
         super()
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            user: []
         }
     }
 
@@ -28,15 +29,16 @@ class LoginForm extends Component {
         .then(res => res.json())
         .then(data => data.map(user => {
             this.setState({
-                users: user
+                user: user
             })
             if(user.username === username && user.password === password){
+                user.logged_in = true
                 this.props.history.push('/user/' + user.id )
             } 
-        }))
+        })).catch(error => console.log(error) );
     } 
           
-    // style={{ backgroundImage:"url(https://spiritofyork.com/wp-content/uploads/2020/05/image6-1.jpg)"}}
+
     render(){
         return(
             <div className='login'>
