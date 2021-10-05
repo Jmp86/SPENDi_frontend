@@ -5,7 +5,7 @@ const BudgetForm = ({ handleSubmit, handleBudget, budget }) => {
     const { category_budget, name } = budget
 
     return (
-        <div>
+        <div className="tile">
             <form onSubmit={handleSubmit}>
                 <label>Name:</label><br/>
                 <input name="name" value={name} onChange={handleBudget}/><br/>

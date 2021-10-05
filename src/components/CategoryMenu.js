@@ -9,18 +9,18 @@ class CategoryMenu extends Component {
             name: "",
             selected: "",
             validationError: "",
-            selectedCat: {}
+            selectedCat: {},
+            categoryId: 0,
+            user_id: 0
         }
     }
 
-
-
     componentDidMount = () => {
-        fetch(`http://localhost:9292/categories`)
+        fetch(`http://localhost:9292/users/${this.props.user_id}`)
         .then(res => res.json())
-        .then(categories => 
+        .then(user => 
             this.setState({
-                categories: categories
+                categories: user.categories
             })   
     )
     
@@ -32,15 +32,17 @@ class CategoryMenu extends Component {
             validationError: e.target.value === "Categories" ? "You must select a Category" : ""
         }) 
         this.updateSelectedState(e.target.value)
-    }   
+    }  
+
     updateSelectedState = (name) => {
         this.state.categories.map(cat => {
             if (name == cat.name) {
                 console.log(cat.id)
-                this.props.categoryId(cat.id)
+                this.props.getCategoryId(cat.id)
                 this.setState({
                     selectedCat: cat,
-                    name: cat.name
+                    name: cat.name,
+                    categoryId: cat.id
                 }) 
             } 
         })   

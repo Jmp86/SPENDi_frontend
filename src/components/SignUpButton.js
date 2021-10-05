@@ -5,7 +5,7 @@ const SignUpButton = () => {
     return (
         <div>
             <Link to={'/signup'}>
-                <button className="button">Sign Up Here!</button>
+                <button>Sign Up Here!</button>
             </Link>
         </div>
     )

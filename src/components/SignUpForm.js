@@ -44,16 +44,16 @@ const SignUpForm = () => {
     }}
 
     return (
-        <div>
-            <h1>Sign Up Here!</h1>
-            <form onSubmit={handleSubmit}>
+        <div className="signup" style={{ backgroundImage: `url(https://cdn.wallpapersafari.com/26/89/6qybSB.jpeg)`}}>
+            <form className="tile" onSubmit={handleSubmit}>
+                <h1>Sign Up Here!</h1>
                 <label>Username:</label><br/>
                 <input name="username" value={user.username} onChange={handleChange}/>
                 <br/>
                 <label>Password:</label><br/>
                 <input name="password" value={user.password} onChange={handleChange}/>
                 <br/>
-                <input type="submit"/>
+                <input className="submit" type="submit"/>
             </form>
         </div>
     )

@@ -7,7 +7,7 @@ const ExpenseButton = (props) => {
     return (
         <div>
             <Link to={`/expense/${props.user_id}`}>
-                <button className="button">Add Expense</button>
+                <button className="expButton">Add Expense</button>
             </Link>
         </div>
     )

@@ -22,8 +22,8 @@ class LoginForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        const username = e.target.children[2].value
-        const password = e.target.children[6].value
+        const username = e.target.children[3].value
+        const password = e.target.children[7].value
     
         fetch(`http://localhost:9292/users`)
         .then(res => res.json())
@@ -41,8 +41,9 @@ class LoginForm extends Component {
 
     render(){
         return(
-            <div className='login'>
+            <div className='login' style={{backgroundImage: `url(https://wallpaperaccess.com/full/1104816.jpg)`}}>
                 <form className='input' onSubmit={this.handleSubmit}>
+                    <h1>Sign In</h1>
                     <label>Username:</label><br/>
                     <input type="text" name="username" onChange={this.handleChange}/><br/>
                     <label>Password:</label><br/>

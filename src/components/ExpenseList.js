@@ -7,25 +7,25 @@ import '../App.css'
 
 const ExpenseList = (props) => {
 
-    const deleteExpense = (id) => {
-        fetch(`http://localhost:9292/expenses/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-type': 'application/json', 
-                'Accept': 'application/json'
-            }, 
-            body: JSON.stringify({
-               "id": id
-            })
-        })
-        .then(res => res.json())
-        .then(console.log)
-        .catch(error => console.log(error) )
-    }
+    // const deleteExpense = (id) => {
+    //     fetch(`http://localhost:9292/expenses/${id}`, {
+    //         method: 'DELETE',
+    //         headers: {
+    //             'Content-type': 'application/json', 
+    //             'Accept': 'application/json'
+    //         }, 
+    //         body: JSON.stringify({
+    //            "id": id
+    //         })
+    //     })
+    //     .then(res => res.json())
+    //     .then(console.log)
+    //     .catch(error => console.log(error) )
+    // }
 
         return(
-            <div className='expenses'>
-                {props.expenses.map(exp => <div>{exp.description} : {exp.cost} <button onClick={() => deleteExpense(exp.id)}>x</button></div>)}
+            <div className='tile'>
+                {props.expenses.map(exp => <div>{exp.description} : {exp.cost} <button className="delete" onClick={() => props.deleteExpense(exp.id)}>x</button></div>)}
                 {/* {console.log(this.state.categories.name)} */}
             </div>
         )
