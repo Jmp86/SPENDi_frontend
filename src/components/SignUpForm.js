@@ -36,7 +36,7 @@ const SignUpForm = () => {
                newUser
             })
         }) 
-        // console.log(newUser)
+        
     
         .then(res => res.json())
         .then(user => {history.push(`/user/${user.id}`)})

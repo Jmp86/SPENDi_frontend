@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 
-
 const BudgetForm = ({ handleSubmit, handleBudget, budget }) => {
     const { category_budget, name } = budget
 

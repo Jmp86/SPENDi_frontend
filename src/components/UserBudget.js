@@ -6,7 +6,7 @@ import ExpenseList from './ExpenseList'
 import NavBar from './NavBar'
 import '../App.css'
 import UpdateIncome from './UpdateIncome'
-import UpdateTotals from './UpdateTotals'
+
 
 class UserBudget extends Component {
     constructor(){
@@ -36,21 +36,28 @@ class UserBudget extends Component {
         fetch(`http://localhost:9292/users`)
         .then(res => res.json())
         .then(user => {
+            
             user.map(user => {
                 if (user.id == id){
                     this.setState({
                         user: user,
                         expenses: user.expenses,
                         monthly_income: user.monthly_income,
-                        categories: user.categories
+                        categories: user.categories,
                     })
+                    this.updateTotals(user)
                 }
             })   
         })
     }
 
-    updateCategoryExpense = () => {
-        
+    updateTotals = (user) => {
+       let exp = this.state.expenses.length == 0 ? 0 : user.expenses.map(exp => exp.cost).reduce((a, b) =>  a + b )
+       let budget = this.state.categories.length == 0 ? 0 : user.categories.map(cat => cat.category_budget).reduce((a, b) =>  a + b )
+       this.setState({
+        totalExpense: exp,
+        totalBudget: budget
+       })
     }
 
     handleIncomeSubmit = (e) => {
@@ -170,15 +177,17 @@ class UserBudget extends Component {
         return(
             <div className='userBudget'style={{backgroundImage: `url(https://blog.verifirst.com/hubfs/Blog_Images/background%20check%20budget.png)`}}>
                 <NavBar user_id={this.state.user.id}/>
-                <h1>{this.state.user.username}</h1>
-                <UpdateTotals categories={this.state.categories} expenses={this.state.expenses} user_id={this.state.user.id}/>
+                
                 <div className="tile">
-                    <h3>Monthly Income: ${this.state.monthly_income}</h3>
-                    <h3>Total Budget: $</h3>
-                    <h3>Total Savings: $</h3>
+                    <h1>{this.state.user.username}</h1>
+                    <h3>Monthly Income: <br/>${this.state.monthly_income}</h3>
+                    <h3>Budget Goal: <br/>${this.state.totalBudget}</h3>
+                    <h3>Total Expense: <br/>${this.state.totalExpense}</h3>
+                    <h3>Remaining Budget: <br/>${(this.state.totalBudget - this.state.totalExpense).toFixed(2)}</h3>
+                    <h3>Monthly Savings: <br/>${(this.state.monthly_income - this.state.totalExpense).toFixed(2)}</h3>
                 </div>
                 <h2>Budgets</h2>
-                <CategoryList deleteBudget={this.deleteBudget} categories={this.state.categories} user_id={this.state.user.id}/>
+                <CategoryList deleteBudget={this.deleteBudget} expenses={this.state.expenses} categories={this.state.categories} user_id={this.state.user.id}/>
                 <h2>Expenses</h2>
                 <ul>
                     <ExpenseList deleteExpense={this.deleteExpense} expenses={this.state.expenses} user_id={this.state.user.id}/>

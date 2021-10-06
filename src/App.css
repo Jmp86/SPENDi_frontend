@@ -2,9 +2,11 @@
   text-align: center;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Baumans&display=swap');
 .home h1{ 
+  
    color: #111;
-   font-family: 'Staatliches';
+   font-family: 'Baumans';
    font-size: 200px; 
    font-weight: bold; 
    letter-spacing: -1px; 
@@ -26,6 +28,9 @@
     color:whitesmoke;
   }
 
+  .list {
+    text-align: left; 
+  }
 
 .home, .signup, .login, .userBudget, .expense{
   min-height: 1000px;

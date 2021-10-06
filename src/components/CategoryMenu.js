@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-
 class CategoryMenu extends Component {
     constructor(){
         super()
@@ -48,7 +47,6 @@ class CategoryMenu extends Component {
         })   
     }
 
-    
     render(){
     return (
         <div>

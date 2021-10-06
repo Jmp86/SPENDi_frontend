@@ -3,8 +3,6 @@ import { useHistory } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 import CategoryMenu from "./CategoryMenu"
 import NavBar from './NavBar'
-// import Form from "react-bootstrap/Form";
-// import Button from "react-bootstrap/Button";
 import '../App.css'
 
 const ExpenseForm = (props) => {
@@ -23,7 +21,6 @@ const ExpenseForm = (props) => {
           ...expense,
           [e.target.name]: e.target.value,
           user_id: props.match.params.id,
-        //   category_id: 
         })
     }
 
@@ -51,7 +48,6 @@ const ExpenseForm = (props) => {
                newExpense
             })
         }).catch(error => console.log(error) );
-        // console.log(newExpense)
         history.push(`/user/${props.match.params.id}`)
     } 
 }
