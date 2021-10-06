@@ -7,28 +7,28 @@ const CategoryList = (props) => {
     const [catExp, setCatExp] = useState(0)
 
  
-    useEffect(() => {
-        props.categories.map(cat => {
-            console.log(cat)
-            setCategory({
-                ...category,
-                category: cat.id
-            })
-        })
+    // useEffect(() => {
+    //     props.categories.map(cat => {
+    //         console.log(cat)
+    //         setCategory({
+    //             ...category,
+    //             category: cat.id
+    //         })
+    //     })
         
-        props.expenses.map(exp => {
-            if (exp.category_id == category) {
-                console.log(exp.cost)
-                setExpense({
-                    ...expense,
-                    expense: exp.cost 
-                  })
-            let total = expense.reduce((a, b) =>  a + b)
-            setCatExp({catExp: total})
-                console.log()
-            }
-        })
-    }, [])
+    //     props.expenses.map(exp => {
+    //         if (exp.category_id == category) {
+    //             console.log(exp.cost)
+    //             setExpense({
+    //                 ...expense,
+    //                 expense: exp.cost 
+    //               })
+    //         let total = expense.reduce((a, b) =>  a + b)
+    //         setCatExp({catExp: total})
+    //             console.log()
+    //         }
+    //     })
+    // }, [])
 
         return(
             <div>
@@ -36,10 +36,9 @@ const CategoryList = (props) => {
                     <div className='tile' key={cat.id}>
                         <h3>{cat.name}</h3> <br/> 
                         Budget: ${cat.category_budget}<br/> 
-                        Current Expense: ${catExp}<br/> 
                         <button className="delete" onClick={() => props.deleteBudget(cat.id)}>x</button>
                     </div>)}
-                    {console.log(expense)}
+                    {/* {console.log(expense)} */}
             </div>
         )
     }
